@@ -1,0 +1,7 @@
+# Application dependencies
+
+require:
+    - play
+    - play -> secure
+    - play -> crud
+    - play -> cobertura 2.4

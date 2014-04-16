@@ -1,0 +1,277 @@
+/* Boite de dialogue add post it */
+.ui-dialog .ui-dialog-titlebar {
+	background: linear-gradient(to top, #CCCCCC, #FFF);
+}
+
+#contentTitle {
+	position: absolute;
+}
+
+#titleInput {
+	margin-left: 42px;
+}
+
+#contentArea {
+	margin-left: 100px;
+	resize: none;
+}
+
+.container{
+	display: inline-block;
+	
+}
+
+.paragraphButton {
+	margin-top: 10px;
+	text-align: right;
+}
+
+.button {
+	border-radius: 5px;
+	background: linear-gradient(to top, #CCCCCC, #FFF);
+}
+
+#color {
+	display: none;
+}
+
+.colorsChoice {
+	border: solid 1px black;
+}
+
+.colorSelected {
+	border: solid 4px black;
+}
+
+#toolbox_paint h4 {
+	text-align: center;
+}
+
+#toolbox_paint button {
+	width: 60px;
+}
+
+.closeTB {
+	float: right;
+	margin-right: -1em;
+}
+
+.sizeSelected {
+	background: linear-gradient(to top, #000000, #FFF);
+	border-radius: 5px;
+	color: white;
+	border: 1px solid #000000;
+}
+
+.toolSelected {
+	background: linear-gradient(to top, #000000, #FFF);
+	border-radius: 5px;
+	color: white;
+	border: 1px solid #000000;
+}
+
+.tools{
+	width: 40px;
+	height: 40px;
+}
+
+#chooseSmallSimpleSizes{
+	width: 10px;
+	height: 10px;
+}
+
+#chooseNormalSimpleSizes{
+	width: 15px;
+	height: 15px;
+}
+
+#chooseLargeSimpleSizes{
+	width: 20px;
+	height: 20px;
+}
+
+#chooseHugeSimpleSizes{
+	width: 25px;
+	height: 25px;
+}
+
+/* Boite de dialogue upload */
+
+#localFile label,#urlFile label {
+	display: block;
+	width: 20em;
+	float: left;
+	text-align: right;
+	margin-right: 5px;
+	color: #333;
+	font-size: 15px;
+}
+
+#urlFile {
+	margin-top: 2ex;
+}
+
+#uploadFrame {
+	display: none;
+}
+
+#uploadSubmit,#chooseAsWP, #deleteWP {
+	background: linear-gradient(to top, #CCCCCC, #FFFFFF) repeat scroll 0 0
+		transparent;
+	border-radius: 5px 5px 5px 5px;
+}
+
+#deleteWP {
+	float: left;
+}
+
+#uploadSubmit {
+	margin-top: 4ex;
+}
+
+input:disabled {
+	background: #ccc;
+}
+
+#defineButton,#uploadButton {
+	text-align: right;
+	font-size: 15px;
+}
+
+#loadingImg {
+	width: 40px;
+	heigth: 40px;
+}
+
+#defineButton {
+	margin-top: 5px;
+}
+
+#uploadFile,#loaded {
+	border: 2px solid gray;
+	border-radius: 5px 5px 5px 5px;
+	padding: 10px;
+	margin-top: 10px;
+	background-color: #F0F8FF;
+}
+
+#inputLocal{
+	font-size: 15px;
+}
+
+.sectionSpan{
+	font-variant: small-caps;
+	font-style: italic;
+	font-weight: bold;
+}
+
+#msgError{
+	display: none;
+}
+
+/* CSS de la galerie de miniatures */
+
+#thumbs {
+	padding: 10px;
+	overflow: hidden;
+	border: 2px solid gray;
+	border-radius: 5px 5px 5px 5px;
+	margin-top: 5px;
+	overflow: auto;
+	max-height: 120px;
+	background-color: #FFFFFF;
+}
+
+#thumbs img {
+	border: 1px solid white;
+	padding: 4px;
+	background-color: white;
+	cursor: pointer;
+}
+
+#thumbs img {
+	float: left;
+	margin-right: 6px;
+}
+
+#thumbs .thumbSelected {
+	border: 1px solid black;
+}
+
+/* Boite de dialogue paint */
+
+#colorSelect, #sizeSelect, #toolSelect{
+	text-align: center;
+	border: 2px solid gray;
+	border-radius: 5px 5px 5px 5px;
+	padding: 10px;
+	margin-top: 5px;
+	background-color: #F0F8FF;
+}
+
+/* Boite de dialogue box */
+
+#dialog_box #nameBox, #dialog_box #positionBox, #dialog_box #colorBox {
+	border: 2px solid gray;
+	border-radius: 5px 5px 5px 5px;
+	padding: 10px;
+	margin-top: 10px;
+	background-color: #F0F8FF;
+	font-size: 15px;
+}
+
+
+/* Boite de dialogue post-it */
+
+#dialog #titlePIT, #dialog #positionPIT, #dialog #colorContainPIT, #dialog #contentPIT, #dialog #sizePIT{
+	border: 2px solid gray;
+	border-radius: 5px 5px 5px 5px;
+	padding: 10px 0px 10px 10px;
+	margin-top: 5px;
+	background-color: #F0F8FF;
+	font-size: 15px;
+	width: 100%;
+}
+
+#colorContainPIT{
+	display: inline-block;
+}
+
+#positionPIT{
+	display: inline-table;
+}
+
+#containerSpan{
+	margin-left: 30px;
+}
+
+/* Boite de dialogue recherche */
+
+#dialog_search #searchTitle, #dialog_search #colorSearch, #dialog_search #searchResult{
+	border: 2px solid gray;
+	border-radius: 5px 5px 5px 5px;
+	padding: 10px 0px 10px 10px;
+	margin-top: 5px;
+	background-color: #F0F8FF;
+	font-size: 15px;
+	width: 100%;
+}
+
+
+.container{
+	font-size: 15px;
+}
+
+#containerChoice{
+	font-size: 15px;
+}
+
+/* Colorpicker */
+
+.colorpicker{
+	margin-left: 90px;
+}
+
+
+
+

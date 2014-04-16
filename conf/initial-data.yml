@@ -1,0 +1,389 @@
+Position(posBoite):
+    x:              100
+    y:              200
+    z:              0
+Position(pos1):
+    x:              300
+    y:              450
+    z:              0
+Position(pos2):
+    x:              300
+    y:              360
+    z:              0
+Position(pos3):
+    x:              450
+    y:              400
+    z:              0
+Position(pos4):
+    x:              450
+    y:              350
+    z:              0
+Position(pos5):
+    x:              450
+    y:              310
+    z:              0
+Position(pos6):
+    x:              650
+    y:              280
+    z:              0
+Position(pos7):
+    x:              420
+    y:              370
+    z:              0
+Position(pos8):
+    x:              530
+    y:              410
+    z:              0
+Position(pos9):
+    x:              650
+    y:              440
+    z:              0
+PostIt(bob1):
+    title:          ToDo
+    color:          "#FFFFFF"
+    content:        web tp
+    width:          200
+    height:         200
+    position:       pos1
+    inBox:          false
+    boxID:          1
+    open:           true
+PostIt(maud1):
+    title:          A Faire
+    color:          "rgb(255, 254, 101)"
+    content:        Shopping <br> Cadeaux de Noel <br> Coiffeur
+    width:          200
+    height:         200
+    position:       pos2
+    inBox:          false
+    boxID:          2
+    open:           true
+    dateCreation:   "2013-01-19"
+PostIt(maud2):
+    title:          Zidane
+    color:          "rgb(254, 153, 107)"
+    width:          200
+    height:         200
+    position:       pos1
+    inBox:          false
+    boxID:          2
+    open:           true
+    dateCreation:   "2013-01-20"
+PostIt(maud3):
+    title:          Yachine
+    color:          "rgb(254, 153, 107)"
+    width:          200
+    height:         200
+    position:       pos3
+    inBox:          false
+    boxID:          2
+    open:           true
+    dateCreation:   "2013-01-21"
+PostIt(maud4):
+    title:          Xhanka
+    color:          "rgb(254, 153, 107)"
+    width:          200
+    height:         200
+    position:       pos4
+    inBox:          false
+    boxID:          2
+    open:           false
+    dateCreation:   "2013-01-22"
+PostIt(maud5):
+    title:          Wade
+    color:          "rgb(254, 153, 107)"
+    width:          200
+    height:         200
+    position:       pos5
+    inBox:          false
+    boxID:          2
+    open:           false
+    dateCreation:   "2013-01-23" 
+PostIt(maud6):
+    title:          Voronin
+    color:          "rgb(254, 153, 107)"
+    width:          200
+    height:         200
+    position:       pos6
+    inBox:          false
+    boxID:          2
+    open:           false
+    dateCreation:   "2013-01-24" 
+PostIt(maud7):
+    title:          Umtiti
+    color:          "rgb(254, 153, 107)"
+    width:          200
+    height:         200
+    position:       pos7
+    inBox:          true
+    boxID:          2
+    open:           false
+    dateCreation:   "2013-01-25" 
+PostIt(maud8):
+    title:          Toto
+    color:          "rgb(52, 255, 52)"
+    width:          200
+    height:         200
+    position:       pos8
+    inBox:          true
+    boxID:          2
+    open:           false
+    dateCreation:   "2013-01-26" 
+PostIt(maud9):
+    title:          Salut ça va?
+    color:          "rgb(154, 255, 153)"
+    width:          200
+    height:         200
+    position:       pos9
+    inBox:          true
+    boxID:          2
+    open:           false
+    dateCreation:   "2013-01-27" 
+PostIt(maud10):
+    title:          Raul
+    color:          "rgb(154, 255, 153)"
+    width:          200
+    height:         200
+    position:       pos1
+    inBox:          true
+    boxID:          2
+    open:           false
+    dateCreation:   "2013-01-28" 
+PostIt(maud11):
+    title:          Quaresma
+    color:          "rgb(52, 255, 52)"
+    width:          200
+    height:         200
+    position:       pos2
+    inBox:          true
+    boxID:          2
+    open:           false
+    dateCreation:   "2013-01-29" 
+PostIt(maud12):
+    title:          Pogba
+    color:          "rgb(154, 255, 153)"
+    width:          200
+    height:         200
+    position:       pos3
+    inBox:          true
+    boxID:          2
+    open:           false
+    dateCreation:   "2013-01-29" 
+PostIt(maud13):
+    title:          Oukidja
+    color:          "rgb(52, 255, 52)"
+    width:          200
+    height:         200
+    position:       pos4
+    inBox:          true
+    boxID:          2
+    open:           false
+    dateCreation:   "2013-01-30" 
+PostIt(maud14):
+    title:          Nani
+    color:          "rgb(154, 255, 153)"
+    width:          200
+    height:         200
+    position:       pos5
+    inBox:          true
+    boxID:          2
+    open:           false
+    dateCreation:   "2013-01-31" 
+PostIt(maud15):
+    title:          Martin
+    color:          "rgb(52, 255, 52)"
+    width:          200
+    height:         200
+    position:       pos6
+    inBox:          true
+    boxID:          2
+    open:           false
+    dateCreation:   "2013-02-01" 
+PostIt(maud16):
+    title:          Lucas
+    color:          "rgb(154, 255, 153)"
+    width:          200
+    height:         200
+    position:       pos7
+    inBox:          true
+    boxID:          2
+    open:           false
+    dateCreation:   "2013-02-02" 
+PostIt(maud17):
+    title:          Kieron
+    color:          "rgb(52, 255, 52)"
+    width:          200
+    height:         200
+    position:       pos8
+    inBox:          true
+    boxID:          2
+    open:           false
+    dateCreation:   "2013-02-03" 
+PostIt(maud18):
+    title:          Joaquin
+    color:          "rgb(52, 255, 52)"
+    width:          200
+    height:         200
+    position:       pos9
+    inBox:          true
+    boxID:          2
+    open:           false
+    dateCreation:   "2013-02-04"
+User(bob):
+    email:          bob@gmail.com
+    password:       2bb80d537b1da3e38bd30361aa855686bde0eacd7162fef6a25fe97bf527a25b
+    name:           bob
+    firstname:      username
+    login:          bob
+    admin:          true
+    postIts:
+                    - bob1
+    totalPostItNum: 1
+User(mike):
+    email:          mike@gmail.com
+    password:       2bb80d537b1da3e38bd30361aa855686bde0eacd7162fef6a25fe97bf527a25b
+    name:           mike
+    firstname:      username
+    login:          mike
+User(Surfeur_85):
+    email:          lucast@ensimag.fr
+    password:       c5bd1aa8a3e22730bd60e7dc273d84c06ce0d9c479ed8e4f18b38d21ae6ad099
+    name:           Thomas
+    firstname:      username
+    login:          Surfeur_85
+User(Lola):
+    email:          giovinal@ensimag.fr
+    password:       e0d3e1ce583357f9aceee59361e231f2562220fe072d3b94d605723d72715909
+    name:           Lola
+    firstname:      username
+    login:          Lola
+User(Maud):
+    email:          eyzatm@ensimag.fr
+    password:       6acf41f41604b343a51d9c214a4754fd6a656b03cd3933d6d8b5374497ed0c82
+    name:           Maud
+    firstname:      username
+    login:          Maud
+    postIts:
+                    - maud1
+                    - maud2
+                    - maud3
+                    - maud4
+                    - maud5
+                    - maud6
+                    - maud7
+                    - maud8
+                    - maud9
+                    - maud10
+                    - maud11
+                    - maud12
+                    - maud13
+                    - maud14
+                    - maud15
+                    - maud16
+                    - maud17
+                    - maud18
+                    
+    totalPostItNum: 2
+    boxes:
+                    - box2
+User(Jan):
+    email:          mikacj@ensimag.fr
+    password:       cfbd5e9b1a684d9e60faa78dfc6b99b83d656d2fc7d3fb9ebde4150d97168db3
+    name:           Jan
+    firstname:      username
+    login:          Jan
+User(Ringo):
+    email:          ringo@rolling.com
+    password:       2499186fcc343d1d4aa1eab01567c6c826573a222b6f2736810ae025ba95ec19
+    name:           Ringo
+    firstname:      username
+    login:          Ringo
+User(Ben):
+    email:          duriezb@ensimag.fr
+    password:       9177c021976aba2b33b631da4ba1c3c0a30fd69d410abde1e5dfb0a270561715
+    name:           Benoit
+    firstname:      username
+    login:          Ben
+User(John):
+    email:          john@rolling.com
+    password:       94aea5e7b55bb89c54207e8be6b43f49eefca81dda02582a0bfc03506958f35b
+    name:           John
+    firstname:      username
+    login:          John
+User(Kango):
+    email:          kango@lu.fr
+    password:       59a9a780a30571e695940c953ca8c2c7c2b7006551f47b66e6e7d17ac269c8df
+    name:           Kango
+    firstname:      username
+    login:          Kango
+Box(box1):
+    position:    pos2
+    color:        "#12dfff"
+    name:       "Box1"
+    width:       700
+    height:      450
+    open:        true
+    max:         false
+    postIts:
+                 - bob1
+Box(box2):
+    position:    posBoite
+    color:        "#FFFFFF"
+    name:       "Box2"
+    width:       700
+    height:      450
+    open:        true
+    max:         false
+    postIts:
+                 - maud1
+                 - maud2
+                 - maud3
+                 - maud4
+                 - maud5
+                 - maud6
+                 - maud7
+                 - maud8
+                 - maud9
+                 - maud10
+                 - maud11
+                 - maud12
+                 - maud13
+                 - maud14
+                 - maud15
+                 - maud16
+                 - maud17
+                 - maud18
+Desktop(bobDesktop):
+    user:           bob
+    color:          "#FFFFFF"
+    boxes:
+                    - box1
+Desktop(mikeDesktop):
+    user:           mike
+    color:          "#FFFFFF"
+Desktop(ThomasDesktop):
+    user:           Surfeur_85
+    color:          "#FFFFFF"
+Desktop(LolaDesktop):
+    user:           Lola
+    color:          "#FFFFFF"
+Desktop(MaudDesktop):
+    user:           Maud
+    color:          "#ABCDEF"
+    boxes:
+                    - box2
+Desktop(BenDesktop):
+    user:           Ben
+    color:          "#FFFFFF"
+Desktop(RingoDesktop):
+    user:           Ringo
+    color:          "#FFFFFF"
+Desktop(KangoDesktop):
+    user:           Kango
+    color:          "#FFFFFF"
+Desktop(JohnDesktop):
+    user:           John
+    color:          "#FFFFFF"
+Desktop(JanDesktop):
+    user:           Jan
+    color:          "#FFFFFF"

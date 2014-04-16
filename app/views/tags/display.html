@@ -1,0 +1,89 @@
+#{if _as.open}
+<div id='postIt_${_as.id}' class='postIt' style="background-color:${_as.color}; width:${_as.width}px; height:${_as.height}px; font-size:smaller;
+													position:absolute; left:%{print(_as.position.x-_pos.x)}%px; top:%{print(_as.position.y-_pos.y)}%px; z-index:${_as.position.z};">
+#{/if}	
+#{else}	
+<div id='postIt_${_as.id}' class='postIt' style="background-color:${_as.color}; width:${_as.width}px; height:${_as.height}px; font-size:smaller;
+													position:absolute; left:%{print(_as.position.x-_pos.x)}%px; top:%{print(_as.position.y-_pos.y)}%px; z-index:${_as.position.z};display:none;">
+#{/else}
+																										
+												
+	<div class='toolbar'>
+		<a class="closeP" href="#" onClick="reducePostIT(${_as.id})">
+			<span class="ui-icon ui-icon-minusthick closePIT"> </span>
+		</a>
+		<a class="deleteP" href="#" onClick="suppressPIT(${_as.id},${_d})">
+			<span class="ui-icon ui-icon-closethick deletePIT"> </span>
+		</a>
+	</div>
+	
+	
+	
+	<div class="title">	
+		#{if _as.title}
+		<span id="titlePSpan_${_as.id}" ondblclick="editTitle(${_as.id})"> ${_as.title}</span>
+		<a id="pencil_${_as.id}" class="writeTitle" href="#" onClick="editTitle(${_as.id})" style="display:none">
+			<span class="ui-icon ui-icon-pencil writeTitlePIT"> </span>
+			<span class="msgWriteTitle">Write post-it title </span>
+		</a>		
+		#{/if}
+		#{else}	
+		<span id="titlePSpan_${_as.id}" ondblclick="editTitle(${_as.id})" style="display:none"> ${_as.title}</span>
+		<a id="pencil_${_as.id}" class="writeTitle" href="#" onClick="editTitle(${_as.id})">
+			<span class="ui-icon ui-icon-pencil writeTitlePIT"> </span>
+			<span class="msgWriteTitle">Write post-it title </span>
+		</a>
+		#{/else}
+		
+		<input type="text" value="${_as.title}" id="titleP_${_as.id}" class="titleP" >
+		<a class="checkedTitle" id="checkedTitle_${_as.id}" href="#" onClick="submitEditionTitle(${_as.id},${_d})">
+			<span class="ui-icon ui-icon-check val"> </span>
+		</a>
+		
+		
+		<script> 
+			var id = "#titleP_" + ${_as.id};
+			titlesPIT += $(id).val() + '`';
+			numPIT +=  ${_as.id} + '`';
+			var pit = "#postIt_"+${_as.id};
+			colorsPIT += RGBToHex($(pit).css('background-color')) + '`';
+		</script>
+	</div>
+	<div class="postIt_content" id="postIt_content_${_as.id}">
+		<div id="date_${_as.id}" style="display:none;">${_as.dateCreation}</div>
+		#{if _as.content}
+		<script>parserTextArea(${_as.id},"${_as.content}")</script>
+		#{/if}
+		#{else}	
+		<a id="pencilContent_${_as.id}" class="writeContent" href="#" onClick="editContent(${_as.id})">
+			<span class="ui-icon ui-icon-pencil writeContentPIT"> </span>
+			<span class="msgWriteContent">Write post-it content </span>
+		</a>
+		#{/else}
+		
+		<textarea rows="10" cols="20" id="contentP_${_as.id}" class="contentP" >"${_as.content}"</textarea>
+		<a class="checkedContent" id="checkedContent_${_as.id}" href="#" onClick="submitEditionContent(${_as.id},${_d})">
+			<span class="ui-icon ui-icon-check val"> </span>
+		</a>
+		
+	</div>
+	
+	<div id="flip_${_as.id}" class="flip">
+		<a class="turnP" href="#" onClick="flip(${_as.id},${_d})">
+			<span class="ui-icon ui-icon-arrowreturnthick-1-e"> </span>
+		</a>
+	</div>
+</div>
+
+#{if _as.open}
+<div id="iconePostIT_${_as.id}" class="iconePostIT" ondblclick="openPostIT(${_as.id})" style="display:none;position:absolute; left:%{print(_as.position.x-_pos.x)}%px; top:%{print(_as.position.y-_pos.y)}%px; z-index:${_as.position.z};">
+#{/if}
+#{else}
+<div id="iconePostIT_${_as.id}" class="iconePostIT" ondblclick="openPostIT(${_as.id})" style="position:absolute; left:%{print(_as.position.x-_pos.x)}%px; top:%{print(_as.position.y-_pos.y)}%px; z-index:${_as.position.z};">
+#{/else}
+	<div id="motifIconePIT2_${_as.id}" class="iconeMotifPIT2" style="background-color: ${_as.color};"></div>
+	<div id="motifIconePIT3_${_as.id}" class="iconeMotifPIT3"></div>
+	<div id="motifIconePIT_${_as.id}" class="iconeMotifPIT" style="background-color: ${_as.color};"></div>
+	<span id="labelIconePIT_${_as.id}">${_as.title.length() > 4 ? _as.title[0..4] + '..' : _as.title}</span>
+</div>
+

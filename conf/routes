@@ -1,0 +1,40 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+GET		/desktop/noscript									Application.noscript
+*      	/                                           Security.login
+*		/login										Security.login
+# Home page
+GET     /login/createAccount                        Security.createAccount
+GET		/desktop/{id}								Application.showDesktop
+GET     /desktop/savecolor/{id}						Application.saveColor
+GET		/desktop/suppressPostIt/{idD}/{idP}			Application.suppressPostIt
+GET		/desktop/suppressBox/{idD}/{idB}			Application.suppressBox
+GET     /desktop/changePostItAppear/{id}			Application.changePostItAppear
+GET     /desktop/savePosition/{id}					Application.savePosition
+GET     /desktop/savePositionBox/{id}				Application.savePositionBox
+GET     /desktop/saveInBox/{id}/{idB}/{idD}			Application.saveInBox
+GET     /desktop/saveInDesktop/{id}/{idB}/{idD}		Application.saveInDesktop
+GET     /desktop/saveState/{id}				    	Application.saveState
+GET     /desktop/saveStatePIT/{id}				    Application.saveStatePIT
+GET     /desktop/changePostItTitle/{id}/{idP}		Application.changePostItTitle
+POST    /desktop/changePostItContent/{id}/{idP}		Application.changePostItContent
+GET		/desktop/changeBoxName/{id}/{idB}			Application.changeBoxName
+GET     /desktop/saveStateMax/{id}				    Application.saveStateMax
+POST	/desktop/saveImageDesktop/{id}				Application.saveImageDesktop
+GET		/admin										module:crud
+POST    /desktop/upload                             Application.upload
+GET		/desktop/saveWP/{id}						Application.saveWP
+GET		/desktop/deleteWP/{id}						Application.deleteWP
+
+
+# Ignore favicon requests
+GET     /favicon.ico                            	404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                	staticDir:public
+
+
+
+# Catch all
+*       /{controller}/{action}                  	{controller}.{action}

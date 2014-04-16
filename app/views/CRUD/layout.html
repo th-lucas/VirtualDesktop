@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="${lang}">
+    <head>
+        <title>#{get 'title' /}</title>
+        <meta charset="${_response_encoding}" />
+	    <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/crud.css'}" />
+    </head>
+    <body id="crud">
+
+        <div id="crudHeader">
+            <h1><a href="@{CRUD.index()}" ><img src=@{'/public/images/Logo_admin_image.png'}/></a></h1>
+            <h3 style="float: right"><a href="@{Application.showDesktop(d.id)}" >Back to my desktop</a></h3>
+        </div>
+
+#{if request.actionMethod != 'index'}
+            <div id="crudBreadcrumb">
+                #{crud.navigation /}
+            </div>
+#{/if}
+
+#{if flash.success}
+            <div class="crudFlash flashSuccess">
+                ${flash.success}
+            </div>
+#{/if}
+#{if flash.error || error}
+            <div class="crudFlash flashError">
+                ${error ?: flash.error}
+            </div>
+#{/if}
+
+        <div id="crudContent">
+#{doLayout /}
+        </div>
+
+        <div id="crudFooter">
+        </div>
+
+    </body>
+</html>

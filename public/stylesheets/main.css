@@ -1,0 +1,58 @@
+/* Parametres globaux */
+body {
+	font-family: Verdana,Arial,sans-serif;
+	margin: 0;
+}
+
+#content{
+	border: thin solid white;
+}
+
+/* Header */
+
+#header {
+	border: solid 2px black;
+	height: 5ex;
+	line-height: 5ex;
+	border-radius: 10px 10px 0 0;
+	background: linear-gradient( to top, #CCCCCC, #FFFFFF); 
+}
+
+#header #welcome {
+	margin-left: 30%;
+	font-size: large;
+}
+
+#header #logoutB,#adminB {
+	float: right;
+	width: 100px;
+	color: white;
+	font-weight: bold;
+	border-radius: 10px;
+	border: solid 1px black;
+	cursor: pointer;
+}
+
+#logo{
+	float: left;
+	width: 25em;
+	height: 5ex;
+}
+
+#logoAdmin{
+	float: left;
+	width: 30em;
+	height: 5ex;
+}
+
+#header #logoutB{
+	background: linear-gradient( to top, #FF0000, rgba(255,0,0,0));;
+	margin-top: -4.6ex;
+	margin-right: 1em;
+}
+
+#header #adminB{
+	background: linear-gradient( to top, rgb(0,0,255), rgba(0,0,255,0));;
+	margin-top: -4.6ex;
+	margin-right: 10em;
+}

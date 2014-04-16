@@ -1,0 +1,104 @@
+#createAccount {
+	margin: 50px auto;
+	text-align: center;
+}
+
+#createAccount h1 {
+	font-weight: bold;
+	color: #111;
+}
+
+#createAccount form {
+	width: 550px;
+	border: 5px solid #ccc;
+	border-radius: 10px;
+	background: #fff;
+	padding: 10px;
+	text-align: left;
+	display: inline-table;
+	vertical-align: middle;
+}
+
+#createAccount form p {
+	margin: 3px;
+}
+
+#createAccount form h2 {
+	text-align: center;
+}
+
+#createAccount form h4 {
+	padding-top: 3ex;
+}
+
+#lastname-field label,#firstname-field label,#email-field label,
+		#confirmPassword-field label,#usernameCA-field label,#passwordCA-field label {
+	display: block;
+	width: 150px;
+	float: left;
+	text-align: right;
+	margin-right: 5px;
+	color: #333;
+	font-size: 15px;
+}
+
+#lastname-field input,#firstname-field input,#email-field input,
+		#confirmPassword-field input,#usernameCA-field input,#passwordCA-field input {
+	width: 200px;
+}
+
+.star{
+	color: #c00;
+}
+
+#logoAccount{
+	width:80px;
+	height: 80px;
+	float: right;
+	margin-top: -72px;
+}
+
+#hrPerso{
+	width: 64%;
+	float: right;
+	margin-top: -30px;
+}
+
+#hrLog{
+	width: 69%;
+	float: right;
+	margin-top: -30px;
+}
+
+#required{
+	font-size: small;
+	font-style: italic;
+	margin-top: 15px;
+}
+
+#reqSpan{
+	color: #CCC;
+}
+
+#createAccount #create-field{
+	text-align: right;
+	margin-top: 10px;
+}
+
+#createButton{
+	width:100px;
+	font-weight: bold;
+}
+
+.error{
+    color: #fff;
+    font-size: 12px;
+    float: left;
+    background: #c00 !important;
+}
+
+.error2{
+    color: #c00;
+    font-size: 12px;
+	font-style: italic;
+}

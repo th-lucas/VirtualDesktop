@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>#{get 'title' /}</title>
+        <meta charset="${_response_encoding}">
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+        #{get 'moreStyles' /}
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+        <script type="text/javascript" src="@{'/public/javascripts/jquery-1.8.3.js'}" type="text/javascript" 
+        		charset="${_response_encoding}"></script>
+        <script type="text/javascript" src="@{'/public/javascripts/jquery-ui-1.9.2.custom.js'}"></script>
+		<script src="http://www.html5canvastutorials.com/libraries/kinetic-v3.7.4.js">
+    </script>
+        #{get 'moreScripts' /}
+    </head>
+    <body>
+    	<noscript><meta http-equiv="refresh" content="0; URL=noscript"> </noscript>
+    	<div id="header">
+    		#{if d.user.admin}
+    			<img src=@{'/public/images/Logo_admin_image.png'} title='Logo_admin' id='logoAdmin'/>
+    		#{/if}
+    		#{else}
+				<img src=@{'/public/images/Logo_image.png'} title='Logo' id='logo'/>
+			#{/else}
+			<span id="welcome">Welcome ${session.username} !</span>
+			#{if d.user.admin}
+				#{form @CRUD.index()}
+				<input type="submit" name="admin" id="adminB" value="Admin">
+			#{/form}   
+			#{/if}
+			#{form @Security.logout()}
+					<input type="submit" name="logout" id="logoutB" value="Logout">
+				#{/form}           
+		</div>
+		
+  		#{doLayout /}
+    </body>
+</html>

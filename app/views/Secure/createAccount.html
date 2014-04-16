@@ -1,0 +1,72 @@
+#{extends 'Secure/layout.html' /} 
+#{stylesheet 'createAccount.css' /}
+
+<div id="createAccount">
+
+	#{form @newAccount()}
+
+	<h2>Create an account</h2>
+	<img src="/public/images/sign-up-icon.png" alt="logo" id="logoAccount" />
+
+	#{ifErrors}
+		<span class="error">#{error 'loginAlreadyInUse'/}</span>
+		<span class="error">#{error 'passwordConfirmError'/}</span>
+		<span class="error">#{error 'passwordTooShort'/}</span>
+	#{/ifErrors}
+	<br/>
+	<h4>Your personnal details</h4>
+	<hr id="hrPerso" />
+	
+
+	<p id="lastname-field">
+		<label for="lastname">Last name</label><span class="star">*</span>
+		<input type="text" name="lastname" id="lastname" value="${flash.lastname}" />
+		<span class="error2">#{error 'lastname'/}</span>
+	</p>
+
+	<p id="firstname-field">
+		<label for="firstname">First name</label><span class="star">*</span> 
+		<input type="text" name="firstname" id="firstname"
+			value="${flash.firstname}" />
+		<span class="error2">#{error 'firstname'/}</span>
+	</p>
+
+	<p id="email-field">
+		<label for="email">E-mail</label><span class="star">*</span>
+		<input type="text" name="email" id="email" value="${flash.email}" />
+		<span class="error2">#{error 'email'/}</span>
+	</p>
+
+	<h4>Your log-in details</h4>
+	<hr id="hrLog" />
+	
+	<p id="usernameCA-field">
+		<label for="usernameCA">Login</label><span class="star">*</span> 
+		<input type="text" name="usernameCA" id="usernameCA"
+			value="${flash.usernameCA}" />
+		<span class="error2">#{error 'usernameCA'/}</span>
+	</p>
+	<p id="passwordCA-field">
+		<label for="passwordCA">Password</label><span class="star">*</span> 
+		<input type="password" name="passwordCA" id="passwordCA" value="" />
+		<span class="error2">#{error 'passwordCA'/}</span>
+	</p>
+
+
+	<p id="confirmPassword-field">
+		<label for="passwordConfirm">Confirm password</label>
+		<span class="star">*</span> 
+		<input type="password" name="passwordConfirm"id="passwordConfirm" value="" />
+		<span class="error2">#{error 'passwordConfirm'/}</span>
+	</p>
+	
+	<p id="create-field">
+			<input type="submit" id="createButton" value="Sign Up" />
+	</p>
+	
+	<div id="required">
+		<span class="star">*</span><span id="reqSpan"> Required fields</span>
+	</div>
+	#{/form}
+
+</div>

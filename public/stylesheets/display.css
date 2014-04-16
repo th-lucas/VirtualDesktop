@@ -1,0 +1,439 @@
+@CHARSET "UTF-8";
+
+/* Post it et boites */
+
+.title {
+	font-weight:bold;
+	font-size:larger;
+	padding-left: 5px;
+}
+
+.title .msgWriteTitle{
+	display: none;
+}
+
+.title a{
+	text-decoration: none;
+}
+
+.title a:hover .msgWriteTitle{
+	display: inline;
+	font-weight:bold;
+	font-size:x-small;
+	color: black;
+	position: absolute;
+	top: 0;
+	left: 2.5em;
+}
+
+.postIt_content .msgWriteContent{
+	display: none;
+}
+
+.postIt_content a{
+	text-decoration: none;
+}
+
+.postIt_content a:hover .msgWriteContent{
+	display: inline;
+	font-weight:bold;
+	font-size:x-small;
+	color: black;
+	position: absolute;
+	top: 50px;
+	left: 2.5em;
+}
+
+.writeContentPIT{
+	position: absolute;
+	top: 50px;
+	left: 5px;
+}
+
+.name {
+	font-weight:bold;
+	font-size:larger;
+	padding-left: 5px;
+	border-bottom: 2px solid #000;
+	cursor: move;
+}
+
+.name .msgWriteName{
+	display: none;
+}
+
+.name a{
+	text-decoration: none;
+}
+
+.name a:hover .msgWriteName{
+	display: inline;
+	font-weight:bold;
+	font-size:x-small;
+	color: black;
+	position: absolute;
+	top: 0;
+	left: 2.5em;
+}
+
+.name span{
+	cursor: text;
+}
+
+.box {
+	box-shadow:0px 2px 5px gray;
+	border: 2px solid #000;
+	overflow: auto;
+}
+
+.box_content {
+	width: 100%;
+}
+
+.postIt {
+	box-shadow:0px 2px 5px gray;
+}
+
+.toolbar{
+    text-align:right;
+    font-weight:bold;
+}
+
+.deletePIT{
+	position: absolute;
+	left: 90%;	
+}
+
+.closePIT{
+	position: absolute;
+	left: 80%;	
+}
+
+.actionsB{
+	position: absolute;
+}
+
+.deleteB{
+	position: absolute;
+	left: 97.3%;	
+}
+
+.closeB{
+	position: absolute;
+	left: 91.3%;
+}
+
+.maximizeB{
+	position: absolute;
+	left: 94.3%;
+}
+
+/* Post it retournement */
+
+.postIt .flip {
+	position: absolute;
+	left: 90%;
+	top: 90%;
+}
+
+.postIt .buttonS {
+	position: absolute;
+	right: 0.5%;
+	top: 6.5ex;
+}
+
+.postIt .buttonC {
+	position: absolute;
+	right: 0.5%;
+	top: 176px;
+}
+
+.postIt .pitFlipped {
+	background-position: center;
+	height: 200px;
+	font-size: smaller;
+}
+
+
+/* Choix couleur */
+
+input[type=checkbox] {
+	visibility: hidden;
+}
+
+.squared {
+	width: 20px;	
+	margin: 20px auto;
+	position: relative;
+}
+
+.squared label {
+	cursor: pointer;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	top: 0;
+	border-radius: 4px;
+	
+	-webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+	box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+	/*background: #fffe65;*/
+	
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+}
+
+.squared label:after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	opacity: 0;
+	content: '';
+	position: absolute;
+	width: 9px;
+	height: 5px;
+	background: transparent;
+	top: 4px;
+	left: 4px;
+	border: 3px solid #333;
+	border-top: none;
+	border-right: none;
+
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+.squared label:hover::after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+	filter: alpha(opacity=30);
+	opacity: 0.5;
+}
+
+.squared input[type=checkbox]:checked + label:after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
+	opacity: 1;
+}
+
+#squaredYLB {
+	background: #fffe65;
+	left: -62.5px;
+}
+
+#squaredBLB {
+	background: #3166ff; 
+	left: -50px;
+	top: 25px;
+}
+
+#squaredGLB {
+	background: #9aff99; 
+	left: 12.5px;
+}
+
+#squaredPLB {
+	background: #9698ed; 
+	left: -25px;
+	top: 25px;
+}
+
+#squaredWLB {
+	background: #ffffff; 
+	left: 25px;
+	top: 25px;
+}
+
+#squaredOLB {
+	background: #fe996b;
+	left: -37.5px;
+}
+
+#squaredFGLB {
+	background: #34ff34;
+	left: 37.5px;
+}
+
+#squaredFBLB {
+	background: #38fff8;
+	left: 62.5px;
+}
+
+#squaredGrLB {
+	background: #c0c0c0;
+	left: 50px;
+	top: 25px;
+}
+
+#squaredRLB {
+	background: #fd6864;
+	left: -12.5px;
+}
+
+#squaredPiLB {
+	background: #ff69B4;
+	left: 0;
+	top: 25px;
+}
+
+/* Titre choix couleur */
+
+.edition {
+	font-weight:bold;
+	padding-left: 5px;
+	color: white;
+}
+
+/* Modification du titre */
+
+.titleP {
+	display: none;
+}
+
+.checkedTitle {
+	display: none;
+	position: absolute;
+	left: 70%;
+	top: 0;
+}
+
+/* Modification du contenu */
+
+.contentP {
+	display: none;
+	resize: none;
+	margin-left: 6%;
+}
+
+.checkedContent {
+	display: none;
+	position: absolute;
+	left: 50%;
+	top: 80%;
+}
+
+/* Modification du nom de la boite */
+
+.nameBox {
+	display: none;
+}
+
+.checkedName {
+	display: none;
+	position: absolute;
+	left: 70%;
+	top: 0;
+}
+
+/* Icones box */
+
+.iconeBox{
+	text-align: center;
+	font-size: small;
+	max-width: 55px;
+	padding: 5px;
+	float: right;
+}
+
+.iconeMotif{
+	margin-left : 7.5px;
+	margin-right : 7.5px;
+	border: 1px solid #000;
+	width: 40px; 
+	height: 28px;
+	text-align: center;
+}
+
+.iconeMotif2{
+	margin-left : 7.5px;
+	margin-right : 7.5px;
+	border: 1px solid #000;
+	border-bottom: none;
+	width: 15px;
+	height: 4px;
+}
+
+/* Icones post-it */
+
+.iconePostIT{
+	text-align: center;
+	font-size: small;
+	max-width: 55px;
+	padding: 5px;
+	float: right;
+}
+
+.iconeMotifPIT{
+	margin-left : 7.5px;
+	margin-right : 7.5px;
+	border: 1px solid #000;
+	border-top: none;
+	width: 30px; 
+	height: 25px;
+	text-align: center;
+}
+
+.iconeMotifPIT2{
+	margin-left : 7.5px;
+	margin-right : 7.5px;
+	border: 1px solid #000;
+	border-bottom: none;
+	border-right: none;
+	width: 15px;
+	height: 15px;
+}
+
+.iconeMotifPIT3{
+	width: 0;
+	height: 0;
+	position: absolute;
+	left : 29px;
+	top: 5px;
+	border-bottom: 16px solid black;
+	border-right: 16px solid transparent;
+}
+
+a .maximizeBOX{
+	float: right;
+}
+
+
+/*Mise en forme du menu déroulant*/
+.menuBox ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+
+.menuBox li{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+
+.drop_down_menu {
+    display: none;
+    width: 184px;
+    border-right: 1px solid #998675;
+    border-left: 1px solid #998675;
+    position: absolute;
+    z-index: 10000;
+}
+.drop_down_menu li {
+    background: #ffffff;
+    border-bottom: 1px solid #998675;
+}
+
+.drop_down_menu li a {
+    color: #000000;
+    text-decoration: none;
+    padding: 8px;
+    display: block;
+}
+
+/* Classe pour le passage sur les icones de fermeture */
+
+.postIt .toolbar a:hover .deletePIT,.postIt .toolbar a:hover .closePIT{
+	border: 2px inset #c0c0c0 !important;
+}

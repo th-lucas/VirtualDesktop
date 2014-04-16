@@ -1,0 +1,55 @@
+#{extends 'Secure/layout.html' /}
+
+ 
+
+
+<div id="login">
+		
+	#{form @Security.authenticate(), id:'existing'}
+		
+		#{if flash.error}
+			<p class="error">
+				&{flash.error}
+			</p>
+		#{/if}
+		#{if flash.success}
+			<p class="success">
+				&{flash.success}
+			</p>
+		#{/if}
+		
+		<h3>Existing user ?</h3>
+		<img src="/public/images/3D-User-icon.png" alt="logo" id="logoExisting" />
+		
+		<p id="username-field">
+			<label for="username">Login:</label>
+			<input type="text" name="username" id="username" value="${flash.username}" />
+		</p>
+		<p id="password-field">
+			<label for="password">&{'secure.password'}</label>
+			<input type="password" name="password" id="password" value="" />
+		</p>
+		<p id="remember-field">
+			<input type="checkbox" name="remember" id="remember" value="true" ${flash.remember ? 'checked="true"' : ''} />
+			<label for="remember">&{'secure.remember'}</label>
+		</p>
+		<p id="signin-field">
+			<input type="submit" id="signin" value="&{'secure.signin'}" />
+		</p>
+		
+		
+	#{/form}
+	
+	#{form @Security.createAccount(), id:'creation'}
+		<h3>New user ?</h3>
+		<img src="/public/images/add_user.png" alt="logo" id="logoCreate" />
+		<p id="createAccount-field">
+			<input type="submit" id="createAccount" value="Create an account" />
+		</p>
+	#{/form}
+</div>
+
+<div id="contact">
+        	<span>Ensimag 2013 - Developped by </span>
+        	 <a href="mailto:benoit.duriez@ensimag.imag.fr,maud.eyzat@ensimag.imag.fr,lola.giovinazzo@ensimag.imag.fr,thomas.lucas@ensimag.imag.fr">John team</a>
+</div> 

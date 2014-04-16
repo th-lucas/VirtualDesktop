@@ -1,0 +1,47 @@
+/*hide the menu initially - leave horizontal room for the images to expand...*/
+#description {
+	margin-left:150px; 
+	width:510px;
+}
+
+#lhColumn {
+	float:left; 
+	width:140px;
+}
+
+#page {
+	padding:20px 0;
+	width:100%;
+}
+
+#menu {
+	display:none;
+}
+
+/*dock styling...*/
+/*...set the cursor...*/
+#menu div.jqDock {
+	cursor:pointer;
+	border:2px solid #000000; 
+	border-left:0 none;
+	border-radius: 0 5px 5px 0;
+	background:linear-gradient( to top, #CCCCCC, #FFF);
+	z-index: 10000;
+}
+
+div.jqDockLabel {
+	font-weight:bold;
+	font-style:italic;
+	white-space:nowrap;
+	width: 100px;
+	color:#000000;
+	cursor:pointer;
+	padding:0 1px;
+}
+
+#menu img{
+	padding: 5px;
+}
+
+
+

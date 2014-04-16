@@ -1,0 +1,10 @@
+# You can specialize this file for each language.
+# For example, for French create a messages.fr file
+#
+
+validation.required = Missing required field
+login=User login
+first=First connection
+last=Last connection
+postIts=Current number of PostIts
+totalPostItNum=Overall number of PostIts

@@ -1,0 +1,92 @@
+#{if _as.open}
+	#{if _as.max}
+<div id='box_${_as.id}' class='box' style="width:${_as.width}px; height:${_as.height}px; font-size:smaller;left:${_as.position.x}px; top:${_as.position.y}px;">
+	<script>maximizeBoxLoading(${_as.id})</script>
+	#{/if}
+	#{else}	
+<div id='box_${_as.id}' class='box' style="width:${_as.width}px; height:${_as.height}px; font-size:smaller;
+													position:absolute; left:${_as.position.x}px; top:${_as.position.y}px; z-index:${_as.position.z}; ">
+	#{/else}
+#{/if}	
+#{else}
+	<div id='box_${_as.id}' class='box' style="width:${_as.width}px; height:${_as.height}px; font-size:smaller;
+													position:absolute; left:${_as.position.x}px; top:${_as.position.y}px; z-index:${_as.position.z}; display:none; ">
+#{/else}																									
+												
+	<div class='toolbar'>
+		<a class="closeB" href="#" onClick="reduceBox(${_as.id})">
+			<span class="ui-icon ui-icon-minusthick closeBOX"> </span>
+		</a>
+
+		<a id="boutonMax_${_as.id}" class="maximizeB" href="#">
+			<span class="ui-icon ui-icon-plusthick maximizeBOX"> </span>
+		</a>
+		<script>maximizeBoxIcone(${_as.id},${_as.position.x},${_as.position.y},${_as.position.z})</script>
+		
+			
+		<a class="deleteB" href="#" onClick="suppressBox(${_as.id},${_d})">
+			<span class="ui-icon ui-icon-closethick deleteBOX"> </span>
+			<input id="suppAll" name="suppAll" style="display: none;" value="false"/>
+		</a>
+		
+	</div>
+	
+	
+	<div id="box_name_${_as.id}" class="name" style="background-color:${_as.color};">
+		#{if _as.name}
+		<span id="nameBoxSpan_${_as.id}" ondblclick="editName(${_as.id})">${_as.name}</span>
+		<a id="pencilBox_${_as.id}" class="writeName" href="#" onClick="editName(${_as.id})" style="display:none">
+			<span class="ui-icon ui-icon-pencil writeNameBox"> </span>
+			<span class="msgWriteName">Write box name </span>
+		</a>
+		#{/if}
+		#{else}	
+		<span id="nameBoxSpan_${_as.id}" ondblclick="editName(${_as.id})" style="display:none">${_as.name}</span>
+		<a id="pencilBox_${_as.id}" class="writeName" href="#" onClick="editName(${_as.id})">
+			<span class="ui-icon ui-icon-pencil writeNameBox"> </span>
+			<span class="msgWriteName">Write box name </span>
+		</a>
+		#{/else}
+		<a class="actionsB" href="#" onClick="deroule(${_as.id})" id="iconeMenu_${_as.id}">
+			<span class="ui-icon ui-icon-triangle-1-s actionsBOX"></span>
+		</a>
+		
+		<input type="text" value="${_as.name}" id="nameBox_${_as.id}" class="nameBox" size="72" >
+		<a class="checkedName" id="checkedName_${_as.id}" href="#" onClick="submitEditionName(${_as.id},${_d})">
+			<span class="ui-icon ui-icon-check val"> </span>
+		</a>
+		
+		
+	</div>
+	
+	<div class="box_content" id="box_content_${_as.id}">
+		<div class="menuBox" id="menuBox_${_as.id}">
+			<ul class="drop_down_menu" id="drop_down_menu_${_as.id}">
+    			<li><a href="" onClick="sortBox(${_as.id}, 1)">Sort by title</a></li>
+    			<li><a href="" onClick="sortBox(${_as.id}, 2)">Sort by color</a></li>
+    			<li><a href="" onClick="sortBox(${_as.id}, 3)">Sort by creation date</a></li>
+			</ul>
+		</div>
+		
+		<script>convertColor('${_as.color}',${_as.id})</script>
+		#{list items:_as.postIts, as:'postIt'}
+			#{display post:postIt, as:postIt, d:_d, pos:_as.position /}
+		#{/list}
+	</div>
+</div>
+
+#{if _as.open}
+<div id="iconeBox_${_as.id}" class="iconeBox" ondblclick="openBox(${_as.id})" style="position:absolute; left:${_as.position.x}px; top:${_as.position.y}px; z-index:${_as.position.z} ;display:none;">
+#{/if}
+#{else}
+<div id="iconeBox_${_as.id}" class="iconeBox" ondblclick="openBox(${_as.id})" style="position:absolute; left:${_as.position.x}px; top:${_as.position.y}px; z-index:${_as.position.z} ">
+#{/else}
+	<div id="motifIcone2_${_as.id}" class="iconeMotif2" style="background-color: ${_as.color};"></div>
+	<div id="motifIcone_${_as.id}" class="iconeMotif" style="background-color: ${_as.color};">
+		<a class="maximizeBicone" href="#" onClick="openBoxMax(${_as.id},${_as.position.x},${_as.position.y})">
+			<span class="ui-icon ui-icon-plusthick maximizeBOX"> </span>
+		</a>
+	</div>
+	<span id="labelIcone_${_as.id}">${_as.name}</span>
+</div>
+

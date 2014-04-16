@@ -1,0 +1,342 @@
+#{extends 'main.html' /}
+#{set title:'My Desktop' /}
+#{set 'moreScripts'}
+	#{script 'jquery.colourPicker.js'/}
+	#{script 'desktop.js'/}
+	#{script 'jquery.flip.js'/}
+	#{script 'colorpicker.js'/}
+	#{script 'jquery.jqDock.min.js'/}
+	#{script 'dock.js'/}
+	#{script 'display.js' /}
+	#{script 'canvas.js' /}
+#{/set}
+#{set 'moreStyles'}
+	#{stylesheet 'colorpicker.css' /}
+	#{stylesheet 'display.css' /}
+	#{stylesheet 'jquery-ui-1.9.2.custom.css' /}
+	#{stylesheet 'jquery.colourPicker.css' /}
+	#{stylesheet 'desktop.css' /}
+	#{stylesheet 'dockVertical.css' /}
+#{/set}
+	
+#{if user.wallpaper}
+	%{ def id = user.wallpaper[0];
+	def var = user.images.findAll{w-> w.id == id.toInteger()}[0].url}%
+	#{if user.wallpaper[1] == "Centered"}
+		<div id="content" style="background-image:url(/%{print(var)}%);background-position:center,center;">
+	#{/if}
+	#{if user.wallpaper[1] == "Mosaic"}
+		<div id="content" style="background-image:url(/%{print(var)}%);background-repeat:repeat;">
+	#{/if}
+	#{if user.wallpaper[1] == "Strech"}
+		<div id="content" style="background-image:url(/%{print(var)}%);background-size:100% 100%;">
+	#{/if}
+#{/if}
+#{else}
+<div id="content">
+#{/else}
+	<div id="canvasDiv">
+		<input id="urlImage" value="${d.url}" style="display:none;">
+	</div>	
+		<div style="display:none">
+			<span id="desktop_id">${d.id}</span>
+		</div>
+	<div id='page'>			
+		<div id='lhColumn'>				
+			<div id='menu'>					
+				<img src=@{'/public/images/addPIT.png'} title='Add post-it' id="addPIT" />				
+				            	
+            	<img src=@{'/public/images/archive.png'} title='Add box' id='addBx'/>
+            		
+            	<div id ="input">
+            		<img src=@{'/public/images/Colorsselector.png'} title='Change desktop color' class="selectDColor" id="colorImage"> 
+					<input type="text" name="color" id="color" value="${d.color}">
+            	</div>
+            	
+            	<img src=@{'/public/images/recherche.png'} title='Search post-it' id='searchPIT'/>
+            	<img src=@{'/public/images/paint.png'} title='Paint on your desktop' id='paintD' onclick="activ_Paint()"/>
+            	<img src=@{'/public/images/wallpaper.png'} title='Choose a wallpaper' id='wallpaperD'/>
+			</div>
+		</div>
+	
+			<script>var titlesPIT = "";var numPIT = "";var colorsPIT="";</script>
+						
+			<div id="boxes">
+				#{list items:d.boxes, as:'box'}
+					#{display_box post:box, as:box, d:d.id /}
+				#{/list}
+			</div>
+					
+			<div id="postIts">
+				#{list items:d.postIts, as:'postIt'}
+				%{ def position = new models.Position() }%
+					#{display post:postIt, as:postIt, d:d.id, pos:position /}
+				#{/list}			
+			</div>
+			
+			<div class="dialog" id="dialog_search" title="Search post-its">
+				<p id="searchTitle">
+            		<span>By title : </span>
+					<input id="titleSearched" name="search" type="text" value ="">
+       			</p>
+       			
+       			<script>				
+       				var titles = titlesPIT.split('`');
+       				var colors = colorsPIT.split('`');
+       				var nums = numPIT.split('`');
+       				$("#titleSearched").autocomplete({
+						source: titles
+					});     			
+       			</script>
+       			
+       			<div id="colorSearch">
+       			
+            		<span>By color : </span> <span id="colorSelectedSearch"> &nbsp; &nbsp; &nbsp;</span>
+            		<p id = "colorS"  onChange="displaySearchColor()">
+						<select id="selectSearch" name="colour">
+							<option value="none" selected="selected"></option>
+							<option value="fffe65">#fffe65</option>
+							<option value="fe996b">#fe996b</option>
+							<option value="fd6864">#fd6864</option>			          
+					    	<option value="9aff99">#9aff99</option>
+					    	<option value="34ff34">#34ff34</option>
+					    	<option value="38fff8">#38fff8</option>
+					    	<option value="3166ff">#3166ff</option>
+				        	<option value="9698ed">#9698ed</option>
+				        	<option value="ff69B4">#ff69B4</option>
+  							<option value="ffffff">#ffffff</option> 					    		            
+				        	<option value="c0c0c0">#c0c0c0</option>	
+				    	</select>
+				    </p>
+       		
+       			</div>
+       			
+       			<p id="searchResult">
+       				<span id="textRes"> Results </span>
+       				<span id="txtSearched"> </span>
+       				<span id="colSearched"> </span> </br>
+            		<span id="nbResults"> </span>
+       			</p>
+       			       	
+       			<p id="paragraphButtonSearch" class="paragraphButton">
+    				<input class="button" type="button" value="Search" id="buttonOKSearch">
+    			</p>		
+			</div>
+			
+			<div class="dialog" id="dialog" title="Add a post-it">
+   				#{form @Application.addPostIt(d.id), id:"addPIT"}       
+        			<p id="titlePIT">
+            			<span>Title : </span>
+						<input id="titleInput" name="titleInput" type="text">
+       			 	</p>
+       			 	
+       			 	<p id="contentPIT">
+            			<span id="contentTitle" >Content : </span>
+						<textarea id="contentArea" name="contentArea" rows="10" cols="35"></textarea>
+       			 	</p>
+       			 	
+       			 	
+       			 	<p id="colorContainPIT" onChange="displayPITColor()">
+            			<span>Color : </span><span id="colorChoosePIT"> &nbsp; &nbsp; &nbsp;</span>
+							<select id="colorChoice" name="colour"> 
+					            <option value="fffe65" selected="selected">#fffe65</option>
+								<option value="fe996b">#fe996b</option>
+								<option value="fd6864">#fd6864</option>			          
+					            <option value="9aff99">#9aff99</option>
+					            <option value="34ff34">#34ff34</option>
+					            <option value="38fff8">#38fff8</option>
+					            <option value="3166ff">#3166ff</option>
+					            <option value="9698ed">#9698ed</option>
+					            <option value="ff69B4">#ff69B4</option>
+  								<option value="ffffff">#ffffff</option> 					    		            
+					            <option value="c0c0c0">#c0c0c0</option>	
+					        </select>
+					    
+       			 		<span id="containerSpan" class="container">Container : </span>
+							<select class="container" id="containerChoice" name="container">
+					            <option value="desktop" selected="selected">Desktop</option>
+					        	#{list items:d.boxes, as:'box' }
+        							<option value=${box.id}>${box.name}</option>
+    							#{/list}
+					        </select>
+       			 	</p>
+       			 	<p id="sizePIT">
+            			<span>Size : </span>
+							<input type="radio" name="size" value="square" checked="checked"><img src=@{'/public/images/square.png'}/>
+							<input type="radio" name="size" value="vertical"><img src=@{'/public/images/vertical.png'}/>
+							<input type="radio" name="size" value="horizontal"><img src=@{'/public/images/horizontal.png'}/>
+							<input type="radio" name="size" value="big"><img src=@{'/public/images/big.png'}/>
+       			 	</p>
+       			 	<p id="positionPIT">            				
+       			 		<span>Position (pixel) : </span>			
+       			 			<label id="labelX" class="positionXY">x : </label> 
+       			 			<input class="positionXY" id="xInput" name="xInput" type="text" size="6">		
+       			 			<label id="labelY" class="positionXY">y : </label>
+       			 			<input class="positionXY" id="yInput" name="yInput" type="text" size="6">       			
+       			 	</p>    
+    				<p id="paragraphButton" class="paragraphButton">
+    					<input class="button" type="submit" value="OK" id="buttonOK">
+    				</p>
+   				#{/form}
+			</div>
+
+			
+			<div class="dialog" id="dialog_box" title="Add a box">
+   				#{form @Application.addBox(d.id), id:"AddBox"}       
+        			<p id="nameBox">
+            			<span>Name : </span>
+						<input id="nameInput" name="nameInput" type="text">
+       			 	</p>
+       			 		 	
+       			 	<div id="colorBox" onChange="displayBoxColor()">
+            			<span>Color : </span><span id="colorChooseBox"> &nbsp; &nbsp; &nbsp;</span>
+							<select id="colorChoiceBox" name="colour">
+					            <option value="ffccc9">#ffccc9</option>
+					            <option value="ffce93">#ffce93</option>
+					            <option value="fffc9e">#fffc9e</option>
+					            <option value="ffffc7">#ffffc7</option>
+					            <option value="96fffb">#96fffb</option>
+					            <option value="cdffff">#cdffff</option>
+					            <option value="cbcefb">#cbcefb</option>
+					            <option value="cfcfcf">#cfcfcf</option>
+					            <option value="fcff2f">#fcff2f</option>
+					            <option value="67fd9a">#67fd9a</option>
+					            <option value="68fdff">#68fdff</option>
+					            <option value="fe0000">#fe0000</option>
+					            <option value="f8a102">#f8a102</option>
+					            <option value="ffcc67">#ffcc67</option>
+					            <option value="f8ff00">#f8ff00</option>
+					            <option value="68cbd0">#68cbd0</option>
+					            <option value="34cdf9">#34cdf9</option>
+					            <option value="6665cd">#6665cd</option>
+					            <option value="9b9b9b">#9b9b9b</option>
+					            <option value="cb0000">#cb0000</option>
+					            <option value="f56b00">#f56b00</option>
+					            <option value="ffcb2f">#ffcb2f</option>
+					            <option value="ffc702">#ffc702</option>
+					            <option value="32cb00">#32cb00</option>
+					            <option value="00d2cb">#00d2cb</option>
+					            <option value="6434fc">#6434fc</option>
+					            <option value="656565">#656565</option>
+					            <option value="9a0000">#9a0000</option>
+					            <option value="ce6301">#ce6301</option>
+					            <option value="cd9934">#cd9934</option>
+					            <option value="999903">#999903</option>
+					            <option value="009901">#009901</option>
+					            <option value="329a9d">#329a9d</option>
+					            <option value="3531ff">#3531ff</option>
+					            <option value="6200c9">#6200c9</option>
+					            <option value="343434">#343434</option>
+					            <option value="680100">#680100</option>
+					            <option value="963400">#963400</option>
+					            <option value="986536">#986536</option>
+					            <option value="646809">#646809</option>
+					            <option value="036400">#036400</option>
+					            <option value="34696d">#34696d</option>
+					            <option value="00009b">#00009b</option>
+					            <option value="303498">#303498</option>
+					            <option value="000000">#000000</option>
+					            <option value="330001">#330001</option>
+					            <option value="643403">#643403</option>
+					            <option value="663234">#663234</option>
+					            <option value="343300">#343300</option>
+					            <option value="013300">#013300</option>
+					            <option value="003532">#003532</option>
+					            <option value="010066">#010066</option>
+					            <option value="340096">#340096</option>
+					        </select>
+       			 	</div>
+       			 	
+       			 	<p id="positionBox">
+            			<span>Position (pixel) : </span> <br>
+						<label id="labelXBox">x: </label> <input id="xInputBox" name="xInputBox" type="text" size="6">
+						<label id="labelYBox">y: </label> <input id="yInputBox" name="yInputBox" type="text" size="6">
+       			 	</p>
+    
+    				<p class="paragraphButton" id="paragraphButtonBox">
+    					<input class="button" type="submit" value="OK" id="buttonOKBox">
+    				</p>
+   				#{/form}
+			</div>
+			
+			<div class="dialog" id="dialog_wallpaper" title="Choose wallpaper">
+				#{form @Application.upload(), id:'fileupload', enctype:'multipart/form-data', target:'uploadFrame'}
+				<div id="uploadFile">
+				<span class="sectionSpan">Upload</span>
+				
+				
+				<div id="localFile">
+					<input type="radio" id="radioLocal" checked="checked" onClick="changeButton('local')">
+					<label id="labelLocal">Select file on your computer:</label>
+					<input id="inputLocal" type="file" name="uploadFile" size="40" onchange="disableButton()">
+				</div>
+				<div id="urlFile">
+					<input type="radio" id="radioUrl" onClick="changeButton('url')">
+					<label id="labelUrl">Or past an url:</label>
+					<input id="inputUrl" type="text" size="41" name="uploadFileURL" disabled="disabled" onchange="disableButton()">
+				</div>
+				
+				<div id="uploadButton">
+					<span id="msgError"></span>
+					<input class=".ui-widget submit" id="uploadSubmit" type="submit" value="Start Upload" onclick="startUpload()" disabled="disabled"/>
+				</div>
+				</div>
+				#{/form}
+				
+				<iframe id="uploadFrame" name="uploadFrame" src="#" onload="endUpload()"></iframe>
+				
+
+				<div id="loaded">
+					<span class="sectionSpan">Choose your image in the gallery</span>
+					
+					<div id="thumbs">
+						#{list items:user.images, as:'upload'}
+							<img id="loadedImg_${upload.id}" class="thumb_loaded" src="/${upload.thumbnail_url}" />
+						#{/list}
+					</div>
+					
+					<div id="defineButton">
+						#{if user.wallpaper}
+							<button id="deleteWP" onClick="deleteWP()">Delete wallpaper</button>
+						#{/if}
+						#{else}
+							<button id="deleteWP" disabled="disabled" onClick="deleteWP()">Delete wallpaper</button>
+						#{/else}
+						<select id="optionWP" >
+							<option value="Strech">Strech to Fill Screen</option>
+							<option value="Centered">Center</option>
+							<option value="Mosaic">Tile</option>
+						</select>
+						<button id="chooseAsWP" disabled="disabled" onClick="defineWP()">Define as wallpaper</button>
+					</div>
+				</div>
+			</div>	
+			
+
+			<div class="dialog" id="toolbox_paint" title="Toolbox">
+				<div id="colorSelect">
+					<input class="colorsChoice" id="choosePurpleSimpleColors" type="image" onclick="changeColor('choosePurpleSimpleColors',colorPurple)" src="/public/images/color_purple.png">
+					<input class="colorsChoice" id="chooseGreenSimpleColors" type="image" onclick="changeColor('chooseGreenSimpleColors',colorGreen)" src="/public/images/color_green_bis.png">
+					<input class="colorsChoice" id="chooseYellowSimpleColors" type="image" onclick="changeColor('chooseYellowSimpleColors',colorYellow)" src="/public/images/color_yellow.png">
+					<input class="colorsChoice" id="chooseBlackSimpleColors" type="image" onclick="changeColor('chooseBlackSimpleColors',colorBlack)" src="/public/images/color_black.png">
+					<input class="colorsChoice" id="chooseRedSimpleColors" type="image" onclick="changeColor('chooseRedSimpleColors',colorRed)" src="/public/images/color_red_bis.png">				
+					<input class="colorsChoice" id="chooseCyanSimpleColors" type="image" onclick="changeColor('chooseCyanSimpleColors',colorCyan)" src="/public/images/color_cyan.png">
+					<input class="colorsChoice" id="chooseWhiteSimpleColors" type="image" onclick="changeColor('chooseWhiteSimpleColors',colorWhite)" src="/public/images/color_white.png">
+					<input class="colorsChoice" id="chooseBlueSimpleColors" type="image" onclick="changeColor('chooseBlueSimpleColors',colorBlue)" src="/public/images/color_blue.png">
+				</div>
+				<div id="sizeSelect">
+					<input src="@{'/public/images/dot.png'}" id="chooseSmallSimpleSizes" type="image" onclick="changeSize('chooseSmallSimpleSizes',small)">
+					<input src="@{'/public/images/dot.png'}" id="chooseNormalSimpleSizes" type="image" onclick="changeSize('chooseNormalSimpleSizes',normal)">
+					<input src="@{'/public/images/dot.png'}" id="chooseLargeSimpleSizes" type="image" onclick="changeSize('chooseLargeSimpleSizes',large)">
+					<input src="@{'/public/images/dot.png'}" id="chooseHugeSimpleSizes" type="image" onclick="changeSize('chooseHugeSimpleSizes',huge)">
+				</div>
+				<div id="toolSelect">
+					<input class="tools" id="choosePenTools" type="image" src="@{'/public/images/pencils.png'}" onclick="changeTool('choosePenTools','pen')">
+					<input class="tools" id="chooseEraserTools" type="image" src="@{'/public/images/eraser.png'}" onclick="changeTool('chooseEraserTools','eraser')">
+					<input class="tools" id="clearCanvas" type="image" src="@{'/public/images/trash.png'}" onclick="clearCanvas()">
+				</div>
+			</div>
+        </div>
+      
+</div>
+
