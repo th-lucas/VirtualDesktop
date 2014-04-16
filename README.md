@@ -6,7 +6,7 @@ VirtualDesktop
 
 It is a "classic" Play! framework application.
 
-Do use it, you need to have Play! framework installed on your computer. You can donwload this framework here : ![http://www.playframework.com/](http://www.playframework.com/)
+Do use it, you need to have Play! framework installed on your computer. You can donwload this framework here : http://www.playframework.com/
 
 To run the application : 
 
