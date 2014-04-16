@@ -1,8 +1,8 @@
 VirtualDesktop
 ==============
 
-# Web application using Play! framework
-# Authors : Benoît Duriez - Maud Eyzat - Lola Giovinazzo - Thomas Lucas
+#### Web application using Play! framework
+#### *Authors : Benoît Duriez - Maud Eyzat - Lola Giovinazzo - Thomas Lucas*
 
 It is a "classic" Play! framework application.
 
